@@ -1,0 +1,31 @@
+ void removeLoop(Node* head)
+    {
+     
+     Node*f=head;
+     Node*s=head;
+     while(s!=NULL and f!= NULL and f->next!=NULL)
+     {
+         f=f->next->next;
+         s=s->next;
+         if(s==f)break;
+     }
+     if(s==head)
+     {
+         while(f->next!=s)
+         {
+             f=f->next;
+         }
+         f->next=NULL;
+     }
+     else if(s==f)
+     {  
+        s=head;
+        while(s->next != f->next)
+        {
+            s=s->next;
+            f=f->next;
+        }
+        f->next=NULL;
+     }
+    
+    }
